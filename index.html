@@ -16,13 +16,32 @@
             height: 600px;
             border: none;
         }
+        select {
+            font-size: 16px;
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
     <h1>Live Sports Stream</h1>
-    <p>Enjoy the game!</p>
-    
-    <iframe src="https://www.streameast.gd/game/nhl/86119110" allowfullscreen></iframe>
+    <p>Choose a stream:</p>
 
+    <!-- Stream selection -->
+    <select id="streamSelect" onchange="updateStream()">
+        <option value="https://www.streameast.gd/game/nhl/86119110">Stream 1</option>
+        <option value="https://www.streameast.gd/game/nhl/86119407">Stream 2</option>
+        <option value="https://1stream.eu/nhl/montreal-canadiens-dallas-stars-live-stream/869890">Stream 3</option>
+    </select>
+
+    <!-- Embed selected stream -->
+    <iframe id="sportsStream" src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
+
+    <script>
+        function updateStream() {
+            var select = document.getElementById('streamSelect');
+            var iframe = document.getElementById('sportsStream');
+            iframe.src = select.value;
+        }
+    </script>
 </body>
 </html>
